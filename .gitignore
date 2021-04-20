@@ -127,3 +127,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/MyExercises/web_scraping_test/.vscode/settings.json
