@@ -14,7 +14,8 @@ class KNN():
     def evaluate(self, y_hat, y_test):
         return sum(y_hat == y_test) / y_hat.shape[0]
     
-    def fit():
+    def fit(X_train, y_train):
+        
         return
 
     def predict(self, X_test, X_train, y_train):
