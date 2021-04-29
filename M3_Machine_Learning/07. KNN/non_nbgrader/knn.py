@@ -20,7 +20,6 @@ class KNN():
 
     def predict(self, X_test, X_train, y_train):
         # 
-        y_pred = []
         for i, v1 in enumerate(X_test):
             distances = []
             for j, v2 in enumerate(X_train):
@@ -28,6 +27,6 @@ class KNN():
             sorted_dist = sorted(distances, lambda d: d[1])
             neighbors = sorted_dist[:self.k]
             labels = y_train[neighbors[:, 0]]
-            y_pred.append(max(set(labels), key=labels.count))
-        return np.array(y_hat)
+        return np.array(labels)
 
+y_pred.append(max(set(labels), key=labels.count))
