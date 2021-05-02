@@ -6,31 +6,34 @@ class KNN():
         self.k = k
         self.X_train
         self.y_train
-        self.labels
     
     # calculate distance between two vectors
     def euclidean_distance(self, v1, v2):
         return np.sqrt(sum((self.v1-self.v2)**2))
 
-    def evaluate(self, y_hat, y_test):
-        return sum(y_hat == y_test) / y_hat.shape[0]
+    def evaluate(self, y_hat, y_real):
+        return sum(y_hat == y_real) / y_hat.shape[0]
     
     
     def fit(self, X_train, y_train):
         # 
         self.X_train = X_train
         self.y_train = y_train
-        y_hat = []
-        for i, v1 in enumerate(X_test):
-            distances = []
-            for j, v2 in enumerate(X_train):
-                distances.append([j ,euclidean_distance(v1, v2)])
-            sorted_dist = sorted(distances, lambda d: d[1])
-            neighbors = sorted_dist[:self.k]
-            labels = y_train[neighbors[:, 0]]
-
-    # def predict(self, X_test):
-  
         
-    #     y_pred.append(max(set(labels), key=labels.count))
+
+    def predict(self, X_real):
+        y_hat = []
+        for v1 in X_real:
+            dist_list = []
+            for index, v2 in enumerate(self.X_train):
+                dist = euclidean_distances(v1,v2)
+                dist_list.append([index, dist])
+            sl = sorted(dist_list,key=lambda x: x[1])
+            sl = sl[:k]
+            neighbors = []
+            for i in range(len(sl)):
+                neighbors.append(self.y_train[sl[i][0]])
+            pred = max(set(neighbors), key=neighbors.count)
+            y_hat.append(pred)
+        return np.array(y_hat)
 
