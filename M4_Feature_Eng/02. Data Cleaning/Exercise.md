@@ -4,16 +4,26 @@
 
 ### ❓ Missing values
 
-1. What is the missing datatype used in pandas?
+1. What is the missing datatype used in pandas? 
+# NaN (float)
 2. How to replace all occurences of the value 9999 to missing in pandas?
+# df.replace(9999, pd.NA/np.nan, inplace=True)
 3. How to get the absolute number of missings for each variable in pandas?
+# df.isnull().sum()
 4. How to get the percentage of missings for each variable in pandas?
+# df.isnull().sum() / df.shape[0]
 5. How to drop rows with missing values?
+# df.dropna(axis=0, how='any/all', inplace=True)
 6. How to drop variables with missing values?
+# df.dropna(axis=1, how='any/all', inplace=True)
 7. What is the univariate imputation method in sklearn?
+# SimpleImputer()
 8. What is the multivariate imputation method in sklearn?
+# impute.IterativeImputer() / impute.KNNImputer()
 9. What is the best univariate imputation method to categorical variables? (Explain why)
+# 
 10. What is the best univariate imputation method to numerical variables? (Explain why)
+#  
 
 
 ### 🔎 Outliers
@@ -35,8 +45,8 @@
 
 Consider the following dataset: [San Francisco Building Permits](https://www.kaggle.com/aparnashastry/building-permit-applications-data). Look at the columns "Street Number Suffix" and "Zipcode". Both of these contain missing values.
 
-- Which, if either, are missing because they don't exist?
-- Which, if either, are missing because they weren't recorded?
+- Which, if either, are missing because they don't exist? Streef Suffix Number
+- Which, if either, are missing because they weren't recorded? Zipcode
 
 Hint: Do all addresses generally have a street number suffix? Do all addresses generally have a zipcode?
 
