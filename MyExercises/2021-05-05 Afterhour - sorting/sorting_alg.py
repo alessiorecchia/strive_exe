@@ -2,7 +2,7 @@ from time import time
 import numpy as np
 simple_list = [5,1,3,8,4,7,2,9,0,6]
 np.random.seed(0)
-big_list = np.random.permutation(100000)
+big_list = np.random.permutation(1000000)
 first = simple_list[0]
 
 def strive_sort(l):
@@ -63,7 +63,7 @@ print("buble took: ", end-start, "s")
 '''
 
 start = time()
-quick_sort(0, len(simple_list)-1,simple_list)
+quick_sort(0, len(big_list)-1,big_list)
 print(simple_list)
 end = time()
 
