@@ -2,12 +2,16 @@
 
 import numpy as np
 import time
+# setting the random seed
+np.random.seed(0)
 
 def merge(A, p, q, r):
-    n1 = q - p + 1
-    n2 = r - q
-    L = [A[p + n] for n in range(n1)] 
-    R = [A[q + m + 1] for m in range(n2)]
+    # n1 = q - p + 1
+    # n2 = r - q
+    # L = [A[p + n] for n in range(n1)] 
+    # R = [A[q + m + 1] for m in range(n2)]
+    L = [A[p + n] for n in range(q - p + 1)] 
+    R = [A[q + m + 1] for m in range(r - q)]
     L.append(float('inf'))
     R.append(float('inf'))
     i = 0
@@ -28,17 +32,20 @@ def merge_sort(A, p, r):
         merge(A, p, q, r)
 
 # test the algorithm
-n = 1000000
 simple_list = [5, 7, 8, 4, 9, 2, 6, 3, 0, 1, 19, 11, 15, 18, 10, 13, 16, 14, 12, 17, 20]
-big_list = np.random.permutation(n)
-
 merge_sort(simple_list, 0, len(simple_list) - 1)
 print(simple_list)
 
 
-# time the algorithm
-start = time.time()
-merge_sort(big_list, 0, len(big_list) - 1)
-end = time.time()
+# timing the algorithm
+n = 100000
+n_times = 1
+times = np.array([])
+for i in range(n_times):
+    big_list = np.random.permutation(n)
+    start = time.time()
+    merge_sort(big_list, 0, len(big_list) - 1)
+    end = time.time()
+    times = np.append(times, end - start)
 
-print(f'merge_sort took {end - start} s to sort {n} numbers')
+print(f'merge_sort took {times.mean()} s on average out of {n_times} to sort {n} numbers')
