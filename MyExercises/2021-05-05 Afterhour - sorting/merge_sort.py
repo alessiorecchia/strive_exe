@@ -6,10 +6,6 @@ import time
 np.random.seed(0)
 
 def merge(A, p, q, r):
-    # n1 = q - p + 1
-    # n2 = r - q
-    # L = [A[p + n] for n in range(n1)] 
-    # R = [A[q + m + 1] for m in range(n2)]
     L = [A[p + n] for n in range(q - p + 1)] 
     R = [A[q + m + 1] for m in range(r - q)]
     L.append(float('inf'))
@@ -38,8 +34,8 @@ print(simple_list)
 
 
 # timing the algorithm
-n = 100000
-n_times = 1
+n = 10000  # how many random numbers to be generated
+n_times = 1 # how many times perform the sorting, in order to average the timing
 times = np.array([])
 for i in range(n_times):
     big_list = np.random.permutation(n)
