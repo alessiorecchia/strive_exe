@@ -10,38 +10,55 @@ img = cv2.imread(sys.argv[1])
 
 resized = cv2.resize(img, None, fx=0.25, fy=0.25, interpolation=cv2.INTER_LANCZOS4)
 
-def get_surrounding_box(img):
-
-    orig = img.copy()
-
-    kernel_dim = int(max(img.shape) * 0.02525) if int(max(img.shape) * 0.02525) % 2 != 0 else int(max(img.shape) * 0.02525) + 1
-    st = kernel_dim * 0.0495
+def preprocessing(orig_image: np.ndarray):
+    print('starting preprocessing')
+    print(orig_image.shape[:2])
     
-    box = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    kernel_dim = int(max(orig_image.shape) * 0.02525) if int(max(orig_image.shape) * 0.02525) % 2 != 0 else int(max(orig_image.shape) * 0.02525) + 1
+    sd = kernel_dim * 0.0495
+    
+    box = cv2.cvtColor(orig_image, cv2.COLOR_BGR2GRAY)
     gauss_kernel = (kernel_dim, kernel_dim)
-    box = cv2.GaussianBlur(box, gauss_kernel, st)
+    box = cv2.GaussianBlur(box, gauss_kernel, sd)
 
     plt.figure(figsize = (10,10))
-    plt.imshow(cv2.cvtColor(box, cv2.COLOR_BGR2RGB))
+    plt.imshow(box, cmap='gray')
     plt.show()
 
     _, box = cv2.threshold(box, 128, 255, cv2.THRESH_BINARY_INV)
 
     plt.figure(figsize = (10,10))
-    plt.imshow(cv2.cvtColor(box, cv2.COLOR_BGR2RGB))
+    plt.imshow(box, cmap='gray')
     plt.show()
     
     dilate_kernel = np.ones((gauss_kernel[0]//2, gauss_kernel[1]//2), np.uint8)
     box = cv2.dilate(box, dilate_kernel, iterations=4)
 
     plt.figure(figsize = (10,10))
-    plt.imshow(cv2.cvtColor(box, cv2.COLOR_BGR2RGB))
+    plt.imshow(box, cmap='gray')
     plt.show()
+    print('preprocessing ended...')
+
+    return box
+
+def get_surrounding_box(img: np.ndarray):
+    print(img.shape[:2])
+
+    orig = img.copy()
+    print(orig.shape[:2])
+    box = preprocessing(orig)
+    print('starting finding contours')
+
+    plt.figure(figsize = (10,10))
+    plt.imshow(box, cmap='gray')
+    plt.show()
+    
       
     box_contours, h = cv2.findContours(box, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-    print(len(box_contours))
-
-    cv2.drawContours(orig, [box_contours[0]], 0, BOX_COLOR, 2)
+    print('Contours found: ', len(box_contours))
+    print('Contours coord: ', box_contours[0])
+    cnt = box_contours[0]
+    cv2.drawContours(orig, [cnt], 0, BOX_COLOR, 2)
 
     plt.figure(figsize = (10,10))
     plt.imshow(cv2.cvtColor(orig, cv2.COLOR_BGR2RGB))
@@ -51,6 +68,9 @@ def get_surrounding_box(img):
 
     box = cv2.boxPoints(minRect)
     box = np.intp(box)
+    print('finding contours ended...')
+
+    print(box)
     
     return box
 
