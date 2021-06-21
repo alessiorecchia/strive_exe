@@ -18,7 +18,7 @@ from model import Net
 
 model = Net()
 
-
+OFFSET = 10
 BOX_COLOR = (0, 255, 0)
 img = cv2.imread(sys.argv[1])
 
@@ -220,7 +220,7 @@ digits_boxes = digits.copy()
 for i, cont in enumerate(digits_contours):
     x,y,w,h = cv2.boundingRect(cont)
 
-    digit = digits_boxes[y:y+h, x:x+w]
+    digit = digits_boxes[y-OFFSET:y+h+OFFSET, x-OFFSET:x+w+OFFSET]
     plt.figure(figsize = (10,10))
     plt.imshow(cv2.cvtColor(digit, cv2.COLOR_BGR2RGB))
     plt.show()
