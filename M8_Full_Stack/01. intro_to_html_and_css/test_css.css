@@ -49,3 +49,7 @@ p {
 .gray {
     color: gray;
 }
+
+form input[type='button']:hover {
+    background-color: hotpink;
+}
