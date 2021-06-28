@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Serif&display=swap');
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+body {
+    max-width: 960px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    color: chartreuse;
+}
+
+.bordered {
+    border-style: dotted;
+    border-radius: 10px;
+}
+
+p {
+    margin: 50px;
+}
+
+.big_bold {
+    font-size: large;
+    font-weight: bolder;
+}
+
+.hidden_el{
+    visibility: hidden;
+}
+
+.hidden_cont{
+    visibility: hidden;
+}
