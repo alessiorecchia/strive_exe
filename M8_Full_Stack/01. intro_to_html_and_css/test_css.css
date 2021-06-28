@@ -2,12 +2,14 @@
 
 * {
     font-family: 'Ubuntu', sans-serif;
+    color: blanchedalmond;
 }
 
 
 body {
     max-width: 960px;
     margin: auto;
+    background-color: black;
 }
 
 h1 {
@@ -38,4 +40,12 @@ p {
 
 .hidden_cont{
     visibility: hidden;
+}
+
+.black {
+    color: black;
+}
+
+.gray {
+    color: gray;
 }
