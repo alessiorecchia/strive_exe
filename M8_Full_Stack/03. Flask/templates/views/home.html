@@ -1,0 +1,19 @@
+{% extends "/layouts/index.html"%} 
+
+{% from "/components/jumbotron/jumbotron.html" import JumbotronComponent %}
+{% from "/components/about/index.html" import AboutComponent %}
+{% from "/components/projects/index.html" import ProjectsListingComponent %}
+
+
+{% block title %}
+  Home  
+{% endblock %}
+
+{% block content %}
+{{ JumbotronComponent(social_links)}}
+   <div class="container">
+    {{AboutComponent()}}
+    {{ProjectsListingComponent(my_projects)}}
+   </div>
+{% endblock %}
+

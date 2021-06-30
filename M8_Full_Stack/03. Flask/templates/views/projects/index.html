@@ -1,0 +1,14 @@
+{% extends "/layouts/index.html"%} 
+{% from "/components/projects/index.html" import ProjectsListingComponent %}
+
+{% block title %}
+  Projects  
+{% endblock %}
+
+{% block content %}
+
+   <div class="container"> 
+   {{ProjectsListingComponent(my_projects)}}
+   </div>
+{% endblock %}
+
