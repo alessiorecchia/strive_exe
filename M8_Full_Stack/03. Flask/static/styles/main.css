@@ -1,7 +1,7 @@
 :root {
-    --main-bg-color: #0e1117;
-    --main-text-light: #fff;
-    --main-text-primary: #00f68f;
+    --main-bg-color: #000000;
+    --main-text-light: rgb(255, 115, 0);
+    --main-text-primary: #ffff00;
     
 }
 
@@ -44,9 +44,13 @@ h1{
     font-size:32px;
     font-weight: bold;
 }
-.avatar{
-    width:320px;
+.avatar {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    object-position: top;
 }
+
 .jumbotron {
     background-color:var(--main-bg-color);
     height:100vh;

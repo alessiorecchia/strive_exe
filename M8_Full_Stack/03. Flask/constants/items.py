@@ -1,4 +1,4 @@
-APP_NAME="Ubeyt Demir"
+APP_NAME="Alessio Recchia"
 
 SOCIAL_LINKS = [{
     "name":"Twitter",

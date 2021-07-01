@@ -20,7 +20,8 @@
       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="{{url_for('static',filename='/styles/main.css')}}"/>
+    <!-- <link rel="stylesheet" href="{{url_for('static',filename='/styles/main.css')}}"/> -->
+    <link rel="stylesheet" href={{url_for('static',filename='/styles/main.css')}}/>
     <title>{{APP_NAME}} | {% block title %} {% endblock %}</title>
   </head>
   <body>

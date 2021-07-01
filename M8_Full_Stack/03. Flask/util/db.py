@@ -19,13 +19,11 @@ def read_db():
 
 
 def write_project(title, description, cover, githubLink, liveLink):
-    line = "{},{},{},{},{},{}".format(
-        uuid4(), title, description, cover, githubLink, liveLink)
+    line = "{},{},{},{},{},{}".format(uuid4(), title, description, cover, githubLink, liveLink)
     db_path = "./util/db.csv"
     with open(db_path, 'r+') as f:
         lines = f.readlines()
         if(len(lines) == 0):
-            f.write("id,title,description,cover,githubLink,liveLink")
             f.write(f'{line}')
         else:
             f.write(f'\n{line}')
@@ -48,7 +46,9 @@ def find_project_by_id_and_delete(id):
     lines = a_file.readlines()
     a_file.close()
     # delete lines
-    del lines[1]
+    for i, line in enumerate(lines):
+        if line.split(',')[0] == id:
+            lines.pop(i)
     # write to file without line
     new_file = open(db_path, "w+")
     for line in lines:
