@@ -28,7 +28,7 @@
             <img src="{{item[4]}}" style="width:64px"/>
           </td>
           <td>
-           <a href="/dashboard/projects/{{item[1]}}"> {{item[1]}}</a>
+           <a href="/dashboard/projects/{{item[0]}}"> {{item[1]}}</a>
           </td>
           <td>
             {{item[5]}}
@@ -37,7 +37,7 @@
             {{item[6]}}
           </td>
           <td>
-           <form method="POST" action="/dashboard/projects/{{item[1]}}">
+           <form method="POST" action="/dashboard/projects/{{item[0]}}">
             <button class="btn btn-danger"  type="submit">DELETE</button>
           </form>
           </td>
