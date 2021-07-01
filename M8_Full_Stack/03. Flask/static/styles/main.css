@@ -115,7 +115,19 @@ h1{
     transition: 0.2s;
 }
 
-.merdazza {
-    font-family: fantasy;
-    font-size: xx-large;
+.card-body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.card-header{
+    text-align: center;
+}
+.card-body i{
+    font-size:48px;
+}
+
+th,td{
+    color:var(--main-text-light);
 }

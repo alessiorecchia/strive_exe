@@ -1,0 +1,43 @@
+{% extends "/layouts/index.html"%} 
+
+{% block title %}
+  Files  
+{% endblock %}
+
+{% block content %}
+ 
+   <div class="container">
+     <h1 class="mt-5">Upload File</h1>
+    <form action="/dashboard/files" method="POST" enctype="multipart/form-data" class="mb-4 mt-4">
+      <div class="input-group">
+        <input required name="file" type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Upload</button>
+      </div>
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">File Name</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for file in files%}
+        <tr>
+          <td>
+          <a target="_blank" href="/dashboard/files/{{file}}">  {{file}}</a>
+          </td>
+          <td>
+            <form action="/dashboard/files/{{file}}" method="POST">
+              <button class="btn btn-danger" type="submit">
+                DELETE
+              </button>
+            </form>
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+   </div>
+{% endblock %}
+
