@@ -2,7 +2,7 @@ from flask import Flask,render_template,request,redirect,url_for,send_from_direc
 from constants.items import *
 import os
 from werkzeug.utils import secure_filename
-from util.db import read_db,write_project,find_project_by_id,find_project_by_id_and_delete
+from util.db import read_db,write_project,find_project_by_id,find_project_by_id_and_delete, about_db, write_about
 app = Flask(__name__)
 
 app.config["UPLOAD_FOLDER"]="files"
@@ -71,6 +71,11 @@ def file_actions(filename):
         return redirect(url_for("files"))
     else:
         return send_from_directory(path=app.root_path,directory=app.config["UPLOAD_FOLDER"],filename=filename)
+
+@app.route("/dashboard/about")
+def about():
+    about = about_db()
+    return render_template("/views/about/index.html",APP_NAME=APP_NAME,DASHBOARD_MENU=DASHBOARD_MENU,about=about)
 
 
 

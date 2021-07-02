@@ -54,3 +54,17 @@ def find_project_by_id_and_delete(id):
     new_file.close()
 
     return None
+
+def about_db():
+    about_path = './util/about.csv'
+    about = []
+    with open(about_path, 'r') as f:
+        lines = f.readlines()
+        for line in lines:
+            about.append(line)
+    return(about)
+
+def write_about(about):
+    about_path = './util/about.csv'
+    with open(about_path, 'w') as f:
+        f.write(about)

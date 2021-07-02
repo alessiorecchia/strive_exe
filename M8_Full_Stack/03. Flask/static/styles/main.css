@@ -1,8 +1,8 @@
 :root {
     --main-bg-color: #000000;
     --main-text-light: rgb(255, 115, 0);
-    --main-text-primary: #ffff00;
-    
+    --main-text-light-tr: rgba(255, 115, 0, .5);
+    --main-text-primary: #ffff00;    
 }
 
 .navbar svg{
@@ -11,25 +11,49 @@
 
 .btn-outline-success{
     background-color:var(--main-bg-color);
-    color:var(--main-text-light);
+    color:var(--main-text-primary);
+    border-color: var(--main-text-light);
 }
 .btn-outline-success:hover{
     background-color:var(--main-text-primary);
     color:var(--main-bg-color);
+    border-color: var(--main-text-light);
 }
 
 .form-control{
     background-color:transparent;
+    border-color: var(--main-text-light);
+    color: var(--main-text-light-tr);
 }
 
 .form-control:focus{
     background-color:transparent;
- 
+    border-color: var(--main-text-primary);
+    box-shadow: 0 1px 1px rgba(255, 255, 0, .75) inset, 0 0 8px rgba(255, 255, 0, .5);
+    outline: 0 none;
+}
+
+.form-control::placeholder {
+    color: var(--main-text-light-tr);
 }
 
 .navbar{
-    padding-top:50px
+    padding-top:50px;
 }
+
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-text {
+    color: var(--main-text-light);
+}
+
+nav .navbar-nav li a{
+    color: var(--main-text-light-tr) !important;
+    }
+
+nav .navbar-nav li a:hover{
+    color: var(--main-text-light) !important;
+    }
+
 body{
     background-color:var(--main-bg-color);
     font-family: 'Montserrat', sans-serif;
