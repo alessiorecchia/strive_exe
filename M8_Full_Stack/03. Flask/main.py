@@ -72,10 +72,11 @@ def file_actions(filename):
     else:
         return send_from_directory(path=app.root_path,directory=app.config["UPLOAD_FOLDER"],filename=filename)
 
-@app.route("/dashboard/about")
+@app.route("/dashboard/about", methods=["GET", "POST"])
 def about():
-    about = about_db()
-    return render_template("/views/about/index.html",APP_NAME=APP_NAME,DASHBOARD_MENU=DASHBOARD_MENU,about=about)
+    if request.method == "GET":
+        about = about_db()
+        return render_template("/views/about/index.html",APP_NAME=APP_NAME,DASHBOARD_MENU=DASHBOARD_MENU,about=about)
 
 
 
