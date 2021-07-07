@@ -62,9 +62,12 @@ def about_db():
         lines = f.readlines()
         for line in lines:
             about.append(line)
-    return(about)
+    return about
 
-def write_about(about):
+@staticmethod
+def write_about(text):
     about_path = './util/about.csv'
     with open(about_path, 'w') as f:
-        f.write(about)
+        f.write(text)
+    
+    return

@@ -74,9 +74,20 @@ def file_actions(filename):
 
 @app.route("/dashboard/about", methods=["GET", "POST"])
 def about():
+    return render_template("/views/about/index.html",APP_NAME=APP_NAME,DASHBOARD_MENU=DASHBOARD_MENU)
+
+@app.route("/dashboard/get_about", methods=["GET", "POST"])
+def get_about():
     if request.method == "GET":
         about = about_db()
         return render_template("/views/about/index.html",APP_NAME=APP_NAME,DASHBOARD_MENU=DASHBOARD_MENU,about=about)
+
+@app.route("/dashboard/write_about", methods=["GET", "POST"])
+def write_about():
+    if request.method == "POST":
+        text = request.form.get("About")
+        write_about(text)
+        return redirect(url_for("about"))
 
 
 
