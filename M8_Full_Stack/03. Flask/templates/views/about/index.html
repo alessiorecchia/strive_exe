@@ -8,26 +8,26 @@
 
   <div class="container">
      <h1 class="mt-5">About</h1>
-    <form action="/dashboard/get_about" method="POST" enctype="multipart/form-data" class="mb-4 mt-4">
-      <textarea name="About" type="textarea" rows="3" class="form-control" contenteditable=about > </textarea>
-    </form>
+    <form action="/dashboard/modify_about" method="POST" enctype="multipart/form-data" class="mb-4 mt-4">
 
-    <div class='row justify-content-end'>
-      <div class='col-md-2'>
-        <form action="/dashboard/get_about" method="GET">
+      <textarea name="About" type="textarea" rows="3" class="form-control" contenteditable=about>{{About}} </textarea>
+    
+      <div class='row justify-content-end'>
+        <!-- <div class='col-md-2'>
           <button class="btn btn-outline-secondary" type="submit">
             MODIFY
           </button>
-        </form>
-      </div>
-      <div class='col-md-2'>
-        <form action="/dashboard/write_about" method="POST">
-          <button class="btn btn-success" type="submit">
+        </div> -->
+
+        <div class='col-md-2'>
+          <button type="submit" class="btn btn-success">
             SEND
           </button>
-        </form>
-    </div>
-    </div>
+        </div>
+
+      </div>
+
+    </form>
   </div>
 
     <!-- <table class="table">

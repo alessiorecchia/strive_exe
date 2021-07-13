@@ -64,7 +64,6 @@ def about_db():
             about.append(line)
     return about
 
-@staticmethod
 def write_about(text):
     about_path = './util/about.csv'
     with open(about_path, 'w') as f:

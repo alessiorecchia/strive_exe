@@ -1,0 +1,45 @@
+{% extends "/layouts/index.html"%} 
+{% from "/components/projects/index.html" import ProjectsListingComponent %}
+
+{% block title %}
+  Modify  
+{% endblock %}
+
+{% block content %}
+   <div class="container"> 
+     <h1 class="mt-4 mb-4">Modify project </h1>
+      <form action="/dashboard/projects/new" method="POST" enctype="multipart/form">
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Project Title</label>
+          <input name="title" type="text" class="form-control" value={{project['title']}}>
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Project Cover</label>
+          <input name="cover" type="text" class="form-control" value={{project['cover']}}>
+        </div>
+       <div class="row">
+         <div class="col">
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Project Github Link</label>
+            <input name="githubLink" type="text" class="form-control"  value={{project['github_link']}}>
+          </div>
+         </div>
+         <div class="col">
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Project Live Link</label>
+            <input name="liveLink" type="text" class="form-control"  value={{project['live_link']}}>
+          </div>
+         </div>
+       </div>
+         
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Project Description</label>
+          <textarea name="description" type="textarea" rows="3" class="form-control"  placeholder="Project Description">{{project['description']}} </textarea>
+        </div>
+        <div class="mb-3">
+           <button type="submit" class="btn btn-secondary">Submit</button>
+        </div>
+      </form>
+   </div>
+{% endblock %}
+

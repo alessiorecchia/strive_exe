@@ -25,19 +25,25 @@
         {%for item in all_projects%}
         <tr>
           <td>
-            <img src="{{item[4]}}" style="width:64px"/>
+            <img src="{{item['cover']}}" style="width:64px"/>
           </td>
           <td>
-           <a href="/dashboard/projects/{{item[0]}}"> {{item[1]}}</a>
+           <a href="/dashboard/projects/{{item['id']}}"> {{item['title']}}</a>
           </td>
           <td>
-            {{item[5]}}
+            {{item['live_link']}}
           </td>
           <td>
-            {{item[6]}}
+            {{item['github_link']}}
           </td>
           <td>
-           <form method="POST" action="/dashboard/projects/{{item[0]}}">
+            <!-- <form method="POST" action="/dashboard/projects/{{item['id']}}">
+              <button class="btn btn-secondary"  type="submit">MODIFY</button>
+            </form> -->
+            <a  href="/dashboard/projects/modify/{{item['id']}}" class="btn btn-secondary"> MODIFY</a>
+          </td>
+          <td>
+           <form method="POST" action="/dashboard/projects/{{item['id']}}/delete">
             <button class="btn btn-danger"  type="submit">DELETE</button>
           </form>
           </td>
