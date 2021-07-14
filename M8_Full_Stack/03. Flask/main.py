@@ -57,13 +57,15 @@ def project_delete(id):
 @app.route("/dashboard/projects/modify/<string:id>",methods=["GET","POST"])
 def project_modify(id):
     if request.method=="POST":
-        print(id)
+        print('\n\n\n', id, '\n\n\n')
         #  grab values from form and write into csv file
         title = request.form.get("title")
         description = request.form.get("description")
         cover = request.form.get("cover")
         githubLink = request.form.get("githubLink")
         liveLink = request.form.get("liveLink")
+
+
         update = {
             'title': title,
             'description': description,
@@ -71,13 +73,15 @@ def project_modify(id):
             'github_link': githubLink,
             'live_link': liveLink
         }
+
+
         # write_project(title,description,cover,githubLink,liveLink)
         update_project_by_id(id, update)
         return redirect(url_for("projects"))
     else:
-        project = get_projects_by_id(id)
-        # print(project)
-    return render_template("/views/projects/modify.html",APP_NAME=APP_NAME,DASHBOARD_MENU=DASHBOARD_MENU, project=project)
+        prj = get_projects_by_id(id)
+        print('\n\n\n', prj, '\n\n\n')
+    return render_template("/views/projects/modify.html",APP_NAME=APP_NAME,DASHBOARD_MENU=DASHBOARD_MENU, project=prj)
 
 # @app.route("/dashboard/projects/<string:id>",methods=["GET","POST"])
 # def project_modify(id, update):

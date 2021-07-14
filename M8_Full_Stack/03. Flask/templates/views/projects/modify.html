@@ -5,36 +5,50 @@
   Modify  
 {% endblock %}
 
+{% set PRJ_TITLE = project['title'] %}
+{% set PRJ_COVER = project['cover'] %}
+{% set PRJ_GH_LINK = project['github_link'] %}
+{% set PRJ_LIVE_LINK = project['live_link'] %}
+{% set PRJ_DESCRIPTION = project['description'] %}
+
+
+
+
 {% block content %}
+{{PRJ_TITLE}} <br>
+{{PRJ_COVER}} <br>
+{{PRJ_GH_LINK}} <br>
+{{PRJ_LIVE_LINK}} <br>
+{{PRJ_DESCRIPTION}} <br>
    <div class="container"> 
-     <h1 class="mt-4 mb-4">Modify project </h1>
+     <h1 class="mt-4 mb-4"> Modify project </h1>
       <form action="/dashboard/projects/new" method="POST" enctype="multipart/form">
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Project Title</label>
-          <input name="title" type="text" class="form-control" value={{project['title']}}>
+          <input name="title" type="text" class="form-control" value={{PRJ_TITLE}}>
         </div>
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Project Cover</label>
-          <input name="cover" type="text" class="form-control" value={{project['cover']}}>
+          <input name="cover" type="text" class="form-control" value={{PRJ_COVER}}>
         </div>
        <div class="row">
          <div class="col">
           <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Project Github Link</label>
-            <input name="githubLink" type="text" class="form-control"  value={{project['github_link']}}>
+            <input name="githubLink" type="text" class="form-control"  value={{PRJ_GH_LINK}}>
           </div>
          </div>
          <div class="col">
           <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Project Live Link</label>
-            <input name="liveLink" type="text" class="form-control"  value={{project['live_link']}}>
+            <input name="liveLink" type="text" class="form-control"  value={{PRJ_LIVE_LINK}}>
           </div>
          </div>
        </div>
          
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Project Description</label>
-          <textarea name="description" type="textarea" rows="3" class="form-control"  placeholder="Project Description">{{project['description']}} </textarea>
+          <textarea name="description" type="textarea" rows="3" class="form-control">{{PRJ_DESCRIPTION}} </textarea>
         </div>
         <div class="mb-3">
            <button type="submit" class="btn btn-secondary">Submit</button>

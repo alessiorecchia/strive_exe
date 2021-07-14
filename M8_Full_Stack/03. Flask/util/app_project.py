@@ -9,8 +9,8 @@ engine = db_engine()
 session = Session(engine,future=True)
 
 
-def create_project(title,description,cover,live_link, github_link):
-    project = Project(title = title, description = description, cover = cover, live_link = live_link, github_link = github_link)
+def create_project(title,description,cover, github_link, live_link):
+    project = Project(title = title, description = description, cover = cover, github_link = github_link, live_link = live_link)
     session.add(project)
     session.commit()
     return project.toJSON()
@@ -22,6 +22,7 @@ def get_projects():
 
 def get_projects_by_id(id):
     project = session.query(Project).get(id)
+    # print('\n\n\n', project.toJSON(), '\n\n\n')
     if(project):
         return project.toJSON()
     return None
@@ -44,8 +45,8 @@ def delete_project_by_id(id):
     if(project):
         session.delete(project)
         session.commit()
-    #     return project.toJSON()
-    # return None
+        return project.toJSON()
+    return None
     
 
 
