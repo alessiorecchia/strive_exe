@@ -53,7 +53,7 @@ def delete_project_by_id(id):
 
 
 # create_project('Merda','merda','merda','merda', 'merda')
-# update_project_by_id(1, {'title': 'Merdazza', 'cover': 'https://www.merdazzadek.it/mrddk.png'})
+# update_project_by_id(19, {'title': 'Merdazza', 'description': 'merda merda merda'})
 # prj = get_projects_by_id(1)
 # print(prj)
-delete_project_by_id(1)
+# delete_project_by_id(1)

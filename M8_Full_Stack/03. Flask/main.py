@@ -54,7 +54,7 @@ def project_delete(id):
         return redirect(url_for("projects"))
 
 
-@app.route("/dashboard/projects/modify/<string:id>",methods=["GET","POST"])
+@app.route("/dashboard/projects/<string:id>",methods=["GET","POST"])
 def project_modify(id):
     if request.method=="POST":
         print('\n\n\n', id, '\n\n\n')
@@ -65,7 +65,6 @@ def project_modify(id):
         githubLink = request.form.get("githubLink")
         liveLink = request.form.get("liveLink")
 
-
         update = {
             'title': title,
             'description': description,
@@ -74,13 +73,11 @@ def project_modify(id):
             'live_link': liveLink
         }
 
-
         # write_project(title,description,cover,githubLink,liveLink)
         update_project_by_id(id, update)
         return redirect(url_for("projects"))
     else:
         prj = get_projects_by_id(id)
-        print('\n\n\n', prj, '\n\n\n')
     return render_template("/views/projects/modify.html",APP_NAME=APP_NAME,DASHBOARD_MENU=DASHBOARD_MENU, project=prj)
 
 # @app.route("/dashboard/projects/<string:id>",methods=["GET","POST"])

@@ -25,30 +25,30 @@
       <form action="/dashboard/projects/new" method="POST" enctype="multipart/form">
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Project Title</label>
-          <input name="title" type="text" class="form-control" value={{PRJ_TITLE}}>
+          <input name="title" type="text" class="form-control" value='{{PRJ_TITLE}}'>
         </div>
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Project Cover</label>
-          <input name="cover" type="text" class="form-control" value={{PRJ_COVER}}>
+          <input name="cover" type="text" class="form-control" value='{{PRJ_COVER}}'>
         </div>
        <div class="row">
          <div class="col">
           <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Project Github Link</label>
-            <input name="githubLink" type="text" class="form-control"  value={{PRJ_GH_LINK}}>
+            <input name="githubLink" type="text" class="form-control"  value='{{PRJ_GH_LINK}}'>
           </div>
          </div>
          <div class="col">
           <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Project Live Link</label>
-            <input name="liveLink" type="text" class="form-control"  value={{PRJ_LIVE_LINK}}>
+            <input name="liveLink" type="text" class="form-control"  value='{{PRJ_LIVE_LINK}}'>
           </div>
          </div>
        </div>
          
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Project Description</label>
-          <textarea name="description" type="textarea" rows="3" class="form-control">{{PRJ_DESCRIPTION}} </textarea>
+          <textarea name="description" type="textarea" rows="3" class="form-control">{{PRJ_DESCRIPTION}}</textarea>
         </div>
         <div class="mb-3">
            <button type="submit" class="btn btn-secondary">Submit</button>

@@ -30,6 +30,7 @@ def get_projects_by_id(id):
 
 
 def update_project_by_id(id,update):
+    print('\n\n\n', id, '\n\n\n')
     project = session.query(Project).get(id)
     if(project):
         for key,value in update.items():
