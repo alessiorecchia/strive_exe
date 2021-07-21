@@ -1,0 +1,104 @@
+{"intents": [
+    {"tag": "greeting",
+      "patterns": ["Hi there",
+                  "How are you",
+                  "Is anyone there?",
+                  "Hello",
+                  "Hi",
+                  "Good day"],
+      "responses": ["Hello, thanks for asking",
+                    "Good to see you again",
+                    "Hi there, how can I help?"]
+    },
+    {"tag": "goodbye",
+      "patterns": ["Bye",
+                  "See you later",
+                  "Goodbye",
+                  "Nice chatting to you, bye",
+                  "Till next time"],
+      "responses": ["See you!",
+                    "Have a nice day"]
+    },
+    {"tag": "thanks",
+      "patterns": ["Thanks",
+                  "Thank you",
+                  "That's helpful",
+                  "Awesome, thanks",
+                  "Thanks for helping me"],
+      "responses": ["Happy to help!",
+                    "Any time!",
+                    "My pleasure"]
+    },
+
+    {"tag": "undefined feel",
+      "patterns": ["I don't feel good",
+                  "I'm not doing well",
+                  "I'm not feeling well today",
+                  "I feel sick",
+                  "I need help"],
+      "responses": ["Do you have any symptoms?",
+                    "What are you experiencing",
+                    "What are you suffering from"]
+    },
+
+    {"tag": "heavy symptoms",
+      "patterns": ["I have a flu",
+                  "I have a fever",
+                  "I have a sore throat",
+                  "I have cough and nausia"],
+      "responses": ["Do you want to book an appointment for tomorrow?",
+                    "Would you like to schedule an appointment?",
+                    "Would you like to schedule an appointment for tomorrow?"]
+    },
+
+    {"tag": "light symptoms",
+      "patterns": ["I have a migrane",
+                  "I feel tired",
+                  "I have a cold",
+                  "I have a runny nose"],
+      "responses": ["You probably need to sleep",
+                    "Take hot milk and go to sleep",
+                    "Keep you warm and go to sleep"]
+    },
+
+    {
+      "tag": "positiveconfirmation",
+      "patterns": [
+          "yes",
+          "yep",
+          "sure",
+          "ok",
+          "okay",
+          "please",
+          "sure thing",
+          "yes please",
+          "okay please"
+      ],
+      "responses": [
+          "Great! I have scheduled an appointment for you",
+          "I have scheduled an appointment for you",
+          "Done",
+          "It's Done",
+          "It's all done"
+      ]
+    },
+    
+    {
+      "tag": "negativeconfirmation",
+      "patterns": [
+          "no",
+          "nope",
+          "not really",
+          "Sorry, I am busy",
+          "I am busy",
+          "I am busy tomorrow",
+          "Maybe another day?"
+      ],
+      "responses": [
+          "Would you like to find an hospital?",
+          "Would you like to find a treatment?",
+          "When would you like to schedule it?"
+      ]
+    }
+  ]
+}
