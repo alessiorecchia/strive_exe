@@ -81,3 +81,9 @@ def sentence_similarity(sent1, sent2):
         sent_sims.append(word_sim)
     
     return(sum(sent_sims)/len(sent_sims))
+
+def select_answer(user_sent, responses: list):
+    similarities = []
+    for response in responses:
+        similarities.append(sentence_similarity(user_sent, response))
+    return similarities.index(max(similarities))
