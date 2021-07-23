@@ -4,7 +4,7 @@ import json
 import torch
 
 from model import NeuralNet
-from nltk_utils import bag_of_words, tokenize
+from nltk_utils import bag_of_words, tokenize, select_answer
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -34,6 +34,7 @@ while True:
         print("Thanks for joining me!")
         break
 
+    user_sentence = sentence
     sentence = tokenize(sentence)
     X = bag_of_words(sentence, all_words)
     X = X.reshape(1, X.shape[0])
@@ -50,6 +51,7 @@ while True:
     if prob.item() > 0.75:
         for intent in intents['intents']:
             if tag == intent['tag']:
-                print(f"{bot_name}: {random.choice(intent['responses'])}")
+                print("tag: ", tag)
+                print(f"{bot_name}: {intent['responses'][select_answer(user_sentence, intent['responses'])]}")
     else:
         print(f"{bot_name}: I do not understand. Try to be more specific")

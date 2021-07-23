@@ -52,11 +52,11 @@ for(pattern_sentence, tag) in patterns:
 X_train = np.array(X_train)
 Y_train = np.array(Y_train)
 
-num_epoches = 1000
-batch_size = 16
+num_epoches = 5000
+batch_size = 8
 learning_rate = 0.0005
 input_size = len(X_train[0])
-hidden_size = 16
+hidden_size = 128
 output_size = len(tags)
 
 class ChatData(Dataset):

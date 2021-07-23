@@ -13,9 +13,11 @@ def tokenize(sentence):
     split sentence into array of words/tokens
     a token can be a word or punctuation character, or number
     """
-    sentence = str(sentence, 'utf-8')
     # return nltk.word_tokenize(sentence)
-    return nlp(sentence)
+    # doc_nltk = nltk.word_tokenize(sentence)
+    doc_spacy = nlp(sentence)
+    # print(type(doc_nltk), type(doc_spacy))
+    return doc_spacy
 
 
 def stem(word):
@@ -26,7 +28,7 @@ def stem(word):
     words = [stem(w) for w in words]
     -> ["organ", "organ", "organ"]
     """
-    return stemmer.stem(word.lower())
+    return stemmer.stem(word.text.lower())
 
 
 def bag_of_words(tokenized_sentence, words):
@@ -60,8 +62,8 @@ def sentence_similarity(sent1, sent2):
     # print('lists: ', sent1_list, sent2_list)
     
     # remove stop words from the string
-    sent1_set = {w.lower() for w in sent1_list if not w.is_punct and not w.is_stop and not w.text.isdigit()} 
-    sent2_set = {w.lower() for w in sent2_list if not w.is_punct and not w.is_stop and not w.text.isdigit()} 
+    sent1_set = {w.text.lower() for w in sent1_list if not w.is_punct and not w.is_stop and not w.text.isdigit()} 
+    sent2_set = {w.text.lower() for w in sent2_list if not w.is_punct and not w.is_stop and not w.text.isdigit()} 
     # print('sets: ', sent1_set, sent2_set)
     
     sent_sims = []
