@@ -6,13 +6,16 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem.porter import PorterStemmer
 stemmer = PorterStemmer()
+nlp = spacy.load("en_core_web_sm")
 
 def tokenize(sentence):
     """
     split sentence into array of words/tokens
     a token can be a word or punctuation character, or number
     """
-    return nltk.word_tokenize(sentence)
+    sentence = str(sentence, 'utf-8')
+    # return nltk.word_tokenize(sentence)
+    return nlp(sentence)
 
 
 def stem(word):
@@ -57,8 +60,8 @@ def sentence_similarity(sent1, sent2):
     # print('lists: ', sent1_list, sent2_list)
     
     # remove stop words from the string
-    sent1_set = {w.lemma_.lower() for w in sent1_list if not w.is_punct and not w.is_stop and not w.text.isdigit()} 
-    sent2_set = {w.lemma_.lower() for w in sent2_list if not w.is_punct and not w.is_stop and not w.text.isdigit()} 
+    sent1_set = {w.lower() for w in sent1_list if not w.is_punct and not w.is_stop and not w.text.isdigit()} 
+    sent2_set = {w.lower() for w in sent2_list if not w.is_punct and not w.is_stop and not w.text.isdigit()} 
     # print('sets: ', sent1_set, sent2_set)
     
     sent_sims = []

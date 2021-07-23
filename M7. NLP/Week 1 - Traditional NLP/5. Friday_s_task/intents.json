@@ -41,14 +41,20 @@
         "What kinds of courses are there?",
         "What do you cook?",
         "Can I order a coke?",
+        "Do you have a vegetarian menu?",
+        "Do you have a vegan menu?",
         "I'm hungry",
         "We're starving",
         "I'd like to have a pizza"
       ],
       "responses": [
         "We sell pizza, hamburgers and tacos",
+        "We have regular hamburger, cheese burger and veggie burger",
+        "We have several pizza toppings, pinepple included",
         "We have coke and juice as beverage",
+        "Yes, of course, we have beer as well",
         "May we offer you a slice of hot pizza?",
+        "We have some vegetarian and vegan dishes in the menu",
         "Do you like tacos?",
         "We're here for you."
       ]

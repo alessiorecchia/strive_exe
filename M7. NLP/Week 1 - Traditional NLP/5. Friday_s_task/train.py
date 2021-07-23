@@ -30,8 +30,9 @@ print(tags)
 print('#### PATTERNS')
 print(patterns)
 
-ignore_words = ['?', '!', '.']
-all_words = [stem(w) for w in all_words if w not in ignore_words]
+# ignore_words = ['?', '!', '.']
+# all_words = [stem(w) for w in all_words if w not in ignore_words]
+all_words = [stem(w) for w in all_words if not w.is_stop and not w.is_digit]
 all_words = sorted(set(all_words))
 tags = sorted(set(tags))
 
@@ -52,10 +53,10 @@ X_train = np.array(X_train)
 Y_train = np.array(Y_train)
 
 num_epoches = 1000
-batch_size = 8
-learning_rate = 0.001
+batch_size = 16
+learning_rate = 0.0005
 input_size = len(X_train[0])
-hidden_size = 8
+hidden_size = 16
 output_size = len(tags)
 
 class ChatData(Dataset):
