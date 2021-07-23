@@ -51,6 +51,8 @@ def bag_of_words(tokenized_sentence, words):
     return bag
 
 def semantic_sim(u,v):
+    if (np.sqrt(sum(u**2)) * np.sqrt(sum(v**2))) == 0:
+        return 0
     return (u @ v) / (np.sqrt(sum(u**2)) * np.sqrt(sum(v**2)))
 
 def sentence_similarity(sent1, sent2):
@@ -84,6 +86,9 @@ def sentence_similarity(sent1, sent2):
             if ss > word_sim:
                 word_sim = ss
         sent_sims.append(word_sim)
+    
+    if len(sent_sims) == 0:
+        return 0
     
     return(sum(sent_sims)/len(sent_sims))
 
